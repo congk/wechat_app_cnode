@@ -7,7 +7,7 @@
 	<view class="{{tab=='job'?'nav-button-selected':'nav-button'}}" id="job" catchtap="changeTab">招聘</view>
 </view>
 
-<view wx:if="{{topics}}" class="main-view">
+<view wx:if="{{topics}}" class="content">
 	<view wx:for="{{topics}}">
 	    {{index+1}}: {{item.title}}
 	</view>
