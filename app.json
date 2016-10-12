@@ -1,0 +1,38 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/user/user",
+        "pages/detail/detail"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#444444",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "Cnode社区",
+        "backgroundColor": "#ffffff",
+        "backgroundTextStyle": "light"
+    },
+    "tabBar":{
+        "color": "#282737",
+        "selectedColor": "#a0ce41",
+        "backgroundColor": "#444444",
+        "borderStyle": "white",
+        "list":[
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "images/tabBar/list.png",
+                "selectedIconPath": "images/tabBar/list_hl.png"
+            },{
+                "pagePath": "pages/user/user",
+                "text": "用户",
+                "iconPath": "images/tabBar/my.png",
+                "selectedIconPath": "images/tabBar/my_hl.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 45000,
+        "downloadFile": 45000
+    },
+    "debug": true
+}

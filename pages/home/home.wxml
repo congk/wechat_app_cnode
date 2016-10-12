@@ -1,0 +1,7 @@
+<!-- home.wxml -->
+<view>
+    主页
+</view>
+<!--<view wx:for="{{topics}}">
+    {{index}}: {{item.title}}
+</view>-->
