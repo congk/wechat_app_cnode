@@ -1,19 +1,35 @@
-var https = require("../../utils/https");
+var proxy = require("../../utils/proxy")
+
+var limit = 20;     //单页帖子显示数量
 
 Page({
-  onLoad: function(options){
-  },
-  onReady:function(){
+  data:{
+    topics: null,
+    page: 1,
+    tab: null
   },
   onShow:function(){
+    this.getTopics(null, 1);
   },
-  onHide:function(){
+  changeTab: function(e){
+      this.getTopics(e.target.id, 1);
   },
-  onUnload:function(){
+  pageUp: function(){
+      if(this.data.page > 1)
+        this.getTopics(this.data.tab, this.data.page - 1);
   },
-  onPullDownRefresh: function(){
-    //处理下拉刷新
-    console.log("onPullDownRefresh");
-    wx.stopPullDownRefresh();
+  pageDown: function(){
+      this.getTopics(this.data.tab, this.data.page + 1);
+  },
+  getTopics: function(tab, page){
+      proxy.getTopics(tab, page, limit, (err, data)=>{
+          if(!err){
+              this.setData({
+                  "tab": tab,
+                  "page": page,
+                  "topics": data.data
+              })
+          }
+      });
   }
 })

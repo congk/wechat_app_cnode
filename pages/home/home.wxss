@@ -1,0 +1,44 @@
+/*主题导航样式*/
+.nav {
+    position: fixed;
+    height: 1.8rem;
+    width: 100%;
+    background-color: #f6f6f6;
+    text-align: center;
+}
+.nav-button{
+    display: inline-block;
+    font-size: 1rem;
+    margin: .2rem .3rem;
+    padding: .2rem .4rem;
+    text-align: center;
+    color: #82bb23;
+}
+.nav-button-selected{
+    display: inline-block;
+    font-size: 1rem;
+    margin: .2rem .3rem;
+    padding: .2rem .4rem;
+    text-align: center;
+    color: white;
+    background-color: #82bb23;
+    border-radius: .25rem;
+    
+}
+
+/*页码样式*/
+.pagination{
+    position: fixed;
+    bottom: 0;
+    height: 1.5rem;
+    width: 100%;
+    background-color: #f6f6f6;
+    color: #04567e;
+}
+.pagination view{
+    display: inline-block;
+    width: 4rem;
+    height: 1rem;
+    position: relative;
+    margin: auto 0;
+}

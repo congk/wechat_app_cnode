@@ -24,7 +24,7 @@
                 "selectedIconPath": "images/tabBar/list_hl.png"
             },{
                 "pagePath": "pages/user/user",
-                "text": "用户",
+                "text": "个人",
                 "iconPath": "images/tabBar/my.png",
                 "selectedIconPath": "images/tabBar/my_hl.png"
             }

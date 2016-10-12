@@ -1,7 +1,19 @@
 <!-- home.wxml -->
-<view>
-    主页
+<view class="nav">
+	<view class="{{!tab?'nav-button-selected':'nav-button'}}" catchtap="changeTab">全部</view>
+	<view class="{{tab=='good'?'nav-button-selected':'nav-button'}}" id="good" catchtap="changeTab">精华</view>
+	<view class="{{tab=='share'?'nav-button-selected':'nav-button'}}" id="share" catchtap="changeTab">分享</view>
+	<view class="{{tab=='ask'?'nav-button-selected':'nav-button'}}" id="ask" catchtap="changeTab">问答</view>
+	<view class="{{tab=='job'?'nav-button-selected':'nav-button'}}" id="job" catchtap="changeTab">招聘</view>
 </view>
-<!--<view wx:for="{{topics}}">
-    {{index}}: {{item.title}}
-</view>-->
+
+<view wx:if="{{topics}}" class="main-view">
+	<view wx:for="{{topics}}">
+	    {{index+1}}: {{item.title}}
+	</view>
+	<view class="pagination">
+		<view catchtap="pageUp">上一页</view>
+		<view>第 {{page}} 页</view>
+		<view catchtap="pageDown">下一页</view>
+	</view>
+</view>
