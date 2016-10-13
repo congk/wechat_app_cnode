@@ -1,4 +1,5 @@
 var proxy = require("../../utils/proxy")
+var utils = require("../../utils/utils")
 
 Page({
   data:{
@@ -27,9 +28,9 @@ Page({
               data.data.length && data.data.every((item)=>{
                   //处理头像
                   item.author.avatar_url = item.author.avatar_url.replace("//", "");
+                  var seconds = (now - new Date(item.last_reply_at).getTime())/1000;
                   //处理最后评论时间
-                  var replyTime = new Date(item.last_reply_at).getTime();
-                  item.last_reply_at = transLastReplyTime2String((now - replyTime)/1000);
+                  item.last_reply_at = utils.transLastTime2String(seconds);
                   return true;
               });
               this.setData({
@@ -46,13 +47,3 @@ Page({
         });
     }
 })
-
-function transLastReplyTime2String(seconds){
-    if(seconds >= 3600 * 24)
-        return Math.floor(seconds / (3600 * 24)) + "天前";
-    if(seconds >= 3600)
-        return Math.floor(seconds / 3600) + "小时前";
-    if(seconds >= 60)
-        return Math.floor(seconds / 60) + "分钟前";
-    return Math.floor(seconds) + "秒前";
-}

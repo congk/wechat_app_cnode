@@ -1,0 +1,29 @@
+.title{
+    padding: .5rem .2rem;
+    color: #363636;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+}
+.title span{
+    color: #82bb23;
+}
+.info{
+    font-size: .8rem;
+}
+.info image{
+    float: left;
+    width: .8rem;
+    height: .8rem;
+    margin-left: .6rem;
+}
+.info-right{
+    float: right;
+    color: #b4b4b4;
+    padding-right: .8rem;
+}
+.info-name{
+    padding-left: 1.8rem;
+    color: #0088cc;
+    font-weight: bold;
+}

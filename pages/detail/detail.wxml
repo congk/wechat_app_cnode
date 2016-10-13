@@ -1,4 +1,19 @@
 <!-- detail.wxml -->
-<view>
-    话题内容页
+<view wx:if="{{topic}}">
+    <view class="title">
+        <span wx:if="{{topic.top||topic.tabName}}">[{{topic.top?'置顶':topic.tabName}}]</span>{{topic.title}}
+    </view>
+    <view class="info">
+        <image src="{{topic.author.avatar_url}}" mode="aspectFill"></image>
+        <view class="info-right">最后评论于:{{topic.last_reply_at}}</view>
+        <view class="info-name">{{topic.author.loginname}}</view>
+    </view>
+
+    <!--内容区域-->
+    <view>
+
+    </view>
+    <!--评论区域-->
+    <view>
+    </view>
 </view>

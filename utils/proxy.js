@@ -5,6 +5,7 @@ var topics = "/topics";
 var topic = "/topic"
 
 module.exports = {
+    //获取主题列表
     getTopics: function(tab, page, limit, complete){
         var params = {
             limit: limit,
@@ -15,8 +16,9 @@ module.exports = {
             params.tab = tab;
         httpsGet(topics, complete, params);
     },
+    //获取单个主题详情信息
     getTopic: function(id, complete){
-        httpsGet(ServerURL+topic+"/"+id, complete, {mdrender:false});
+        httpsGet(topic+"/"+id, complete/*, {mdrender:false}*/);
     }
 };
 
