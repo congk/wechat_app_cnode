@@ -13,10 +13,14 @@
     <view>
         {{topic.content}}
     </view>
-    <!--评论区域-->
+
+    <!--评论列表-->
     <view wx:for="{{topic.replies}}">
         {{index}}:{{item.content}}
     </view>
+
+    <!-- 评论回复 -->
+    
 </view>
 
 <!-- loading提示 -->
