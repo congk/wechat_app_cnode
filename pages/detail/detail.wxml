@@ -11,10 +11,11 @@
 
     <!--内容区域-->
     <view>
-
+        {{topic.content}}
     </view>
     <!--评论区域-->
-    <view>
+    <view wx:for="{{topic.replies}}">
+        {{index}}:{{item.content}}
     </view>
 </view>
 
