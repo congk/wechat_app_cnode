@@ -8,7 +8,7 @@
         "navigationBarBackgroundColor": "#444444",
         "navigationBarTextStyle": "white",
         "navigationBarTitleText": "Cnode社区",
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#e1e1e1",
         "backgroundTextStyle": "light"
     },
     "tabBar":{

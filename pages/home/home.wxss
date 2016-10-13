@@ -6,29 +6,22 @@
     background-color: #f6f6f6;
     text-align: center;
     font-size: 1rem;
+    z-index: 100;
 }
-.nav-button{
+.nav view{
     display: inline-block;
     margin: .2rem .3rem;
     padding: .2rem .4rem;
     text-align: center;
+}
+.unselected{
     color: #82bb23;
 }
-.nav-button-selected{
-    display: inline-block;
-    margin: .2rem .3rem;
-    padding: .2rem .4rem;
-    text-align: center;
+.selected{
     color: white;
     background-color: #82bb23;
     border-radius: .25rem; 
 }
-
-/*列表样式*/
-.content{
-    padding: 2rem 0;
-}
-
 
 /*页码样式*/
 .pagination{
@@ -40,9 +33,77 @@
     background-color: #f6f6f6;
     color: #919191;
     text-align: center;
+    z-index: 100;
 }
 .pagination view{
     display: inline-block;
     margin: .2rem 1.6rem;
     padding: .2rem 0;
+}
+
+/*列表项容器*/
+.topics{
+    padding: 2rem 0;
+}
+
+/*列表项*/
+.topic-item{
+    height: 3rem;
+    background-color: #ffffff;
+    border-bottom: .1rem #e1e1e1 solid;
+    /*overflow: hidden;*/
+}
+
+.avatar{
+    float: left;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: .1rem;
+    border: .1rem lightgray solid;
+    border-radius: .2rem;
+    margin-top: .1rem;
+    margin-left: .1rem;
+}
+
+/*帖子标题*/
+.title {
+    position: relative;
+    padding-top: .4rem;
+    padding-left: .4rem;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #363636;
+    margin-right: 1rem;
+}
+.title span{
+    padding: .2rem;
+    border-radius: .2rem;
+    margin-right: .3rem;
+}
+.tag-top{
+    color: white;
+    background-color: #82bb23;
+}
+.tag-ask{
+    color: #778087;
+    background-color: #e5e5e5;
+}
+.info{
+    margin-top: .5rem;
+    font-size: .6rem;
+}
+.count{
+    padding-left: 3.4rem;
+    color: #b4b4b4;
+}
+.count span{
+    color: #9e78c0;
+}
+.time{
+    float: right;
+    color: #778087;
+    margin-right: 1rem;
 }

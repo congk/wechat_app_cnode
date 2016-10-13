@@ -1,19 +1,36 @@
 <!-- home.wxml -->
+
+<!-- 导航 -->
 <view class="nav">
-	<view class="{{!tab?'nav-button-selected':'nav-button'}}" catchtap="changeTab">全部</view>
-	<view class="{{tab=='good'?'nav-button-selected':'nav-button'}}" id="good" catchtap="changeTab">精华</view>
-	<view class="{{tab=='share'?'nav-button-selected':'nav-button'}}" id="share" catchtap="changeTab">分享</view>
-	<view class="{{tab=='ask'?'nav-button-selected':'nav-button'}}" id="ask" catchtap="changeTab">问答</view>
-	<view class="{{tab=='job'?'nav-button-selected':'nav-button'}}" id="job" catchtap="changeTab">招聘</view>
+	<view class="{{tab=='all'?'selected':'unselected'}}" id="all" catchtap="changeTab">全部</view>
+	<view class="{{tab=='good'?'selected':'unselected'}}" id="good" catchtap="changeTab">精华</view>
+	<view class="{{tab=='share'?'selected':'unselected'}}" id="share" catchtap="changeTab">分享</view>
+	<view class="{{tab=='ask'?'selected':'unselected'}}" id="ask" catchtap="changeTab">问答</view>
+	<view class="{{tab=='job'?'selected':'unselected'}}" id="job" catchtap="changeTab">招聘</view>
 </view>
 
-<view wx:if="{{topics}}" class="content">
-	<view wx:for="{{topics}}">
-	    {{index+1}}: {{item.title}}
+<!-- 主题列表项 -->
+<view wx:if="{{topics}}" class="topics">
+	<view wx:for="{{topics}}" class="topic-item">
+		<!-- 发布者头像 -->
+		<image class="avatar" src="{{item.author.avatar_url}}" mode="aspectFill"></image>
+		<!-- 帖子标题 -->
+		<view class="title">
+			<!-- 标签: 置顶｜精华｜问答，优先级依次降低 -->
+			<span wx:if="{{item.top||item.good||item.tab=='ask'}}" class="{{item.top||item.good?'tag-top':'tag-ask'}}">
+				{{item.top?"置顶":(item.good?"精华":"问答")}}
+			</span>{{item.title}}
+		</view>
+		<view class="info">
+			<view class="time">{{item.last_reply_at}}</view>
+			<view class="count"><span>{{item.reply_count+"/"}}</span>{{item.visit_count}}</view>
+		</view>
 	</view>
-	<view class="pagination">
-		<view catchtap="pageUp">上一页</view>
-		<view>第 {{page}} 页</view>
-		<view catchtap="pageDown">下一页</view>
-	</view>
+</view>
+
+<!-- 翻页按钮 -->
+<view class="pagination">
+	<view catchtap="pageUp">上一页</view>
+	<view>第 {{page}} 页</view>
+	<view catchtap="pageDown">下一页</view>
 </view>
