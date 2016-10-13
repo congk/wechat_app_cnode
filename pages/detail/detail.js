@@ -7,30 +7,33 @@ Page({
       },
       onLoad:function(options){
           proxy.getTopic(options.id, (err, data)=>{
-              if(!err && data.success){
-
-                var topic = data.data;
-                if(topic.tab)
-                    topic.tabName = getTabName(topic.tab);
-                topic.author.avatar_url = topic.author.avatar_url.replace("//", "");
-                //处理评论时间
-                var now = new Date();
-                transLastTime2String(topic, "last_reply_at", now);
-
-                //处理评论中的图片链接及评论时间
-                topic.replies.length && topic.replies.every((item)=>{
-                    item.author.avatar_url = item.author.avatar_url.replace("//", "")
-                    transLastTime2String(item, "create_at", now);
-                    return true;
-                });
-
-                this.setData({topic: data.data});
-            } else {
-                wx.navigateBack();
-            }
+                if(!err && data.success){
+                    var topic = parseTopic(data);
+                    this.setData({topic: topic});
+                } else {
+                    wx.navigateBack();
+                }
         });
     }
 })
+
+function parseTopic(data){
+    var topic = data.data;
+    if(topic.tab)
+        topic.tabName = getTabName(topic.tab);
+    topic.author.avatar_url = topic.author.avatar_url.replace("//", "");
+    //处理评论时间
+    var now = new Date();
+    transLastTime2String(topic, "last_reply_at", now);
+
+    //处理评论中的图片链接及评论时间
+    topic.replies.length && topic.replies.every((item)=>{
+        item.author.avatar_url = item.author.avatar_url.replace("//", "")
+        transLastTime2String(item, "create_at", now);
+        return true;
+    });
+    return topic;
+}
 
 function getTabName(tab){
     return {

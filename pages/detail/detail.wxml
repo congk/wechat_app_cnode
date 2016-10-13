@@ -17,3 +17,6 @@
     <view>
     </view>
 </view>
+
+<!-- loading提示 -->
+<text wx:if="{{!topic}}" class="text-loading">加载中...</text>
