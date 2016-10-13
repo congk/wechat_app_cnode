@@ -18,7 +18,7 @@ module.exports = {
     },
     //获取单个主题详情信息
     getTopic: function(id, complete){
-        httpsGet(topic+"/"+id, complete/*, {mdrender:false}*/);
+        httpsGet(topic+"/"+id, complete, {mdrender:false});
     }
 };
 
