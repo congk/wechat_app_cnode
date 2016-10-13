@@ -15,7 +15,7 @@
 		<!-- 发布者头像 -->
 		<image class="avatar" src="{{item.author.avatar_url}}" mode="aspectFill"></image>
 		<!-- 帖子标题 -->
-		<view class="title">
+		<view class="title" catchtap="navigateToTopicDetail" id="{{item.id}}">
 			<!-- 标签: 置顶｜精华｜问答，优先级依次降低 -->
 			<span wx:if="{{item.top||item.good||item.tab=='ask'}}" class="{{item.top||item.good?'tag-top':'tag-ask'}}">
 				{{item.top?"置顶":(item.good?"精华":"问答")}}

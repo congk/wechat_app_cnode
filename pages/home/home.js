@@ -39,7 +39,12 @@ Page({
               });
           }
       });
-  }
+    },
+    navigateToTopicDetail: function(e){
+        wx.navigateTo({
+            url: "../detail/detail?id="+e.target.id
+        });
+    }
 })
 
 function transLastReplyTime2String(seconds){

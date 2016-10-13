@@ -3,6 +3,7 @@ Page({
     // text:"这是一个页面"
   },
   onLoad:function(options){
+    console.log(options);
     // 页面初始化 options为页面跳转所带来的参数
   },
   onReady:function(){
